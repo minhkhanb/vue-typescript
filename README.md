@@ -1,4 +1,4 @@
-# chartflow-admin
+# vue-typescript
 
 ## Project setup
 ```
