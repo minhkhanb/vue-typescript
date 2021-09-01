@@ -28,6 +28,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Reaction Time',
     component: () => import('../views/ReactionTime.vue'),
   },
+  {
+    path: '/sign-up',
+    alias: '/sign-up',
+    name: 'Sign Up',
+    component: () => import('../views/Signup.vue'),
+  },
 ];
 
 const router = createRouter({
