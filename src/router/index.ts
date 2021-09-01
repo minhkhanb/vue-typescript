@@ -18,20 +18,16 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/',
-    alias: '/tutorials',
-    name: 'tutorials',
+    alias: '/jobs',
+    name: 'jobs',
     component: () => import('../views/Jobs.vue'),
   },
-  // {
-  //   path: '/tutorials/:id',
-  //   name: 'tutorial-details',
-  //   component: () => import('../components/Tutorials/Details.vue'),
-  // },
-  // {
-  //   path: '/add',
-  //   name: 'add',
-  //   component: () => import('../components/Tutorials/Add.vue'),
-  // },
+  {
+    path: '/reaction-time',
+    alias: '/reaction-time',
+    name: 'Reaction Time',
+    component: () => import('../views/ReactionTime.vue'),
+  },
 ];
 
 const router = createRouter({
