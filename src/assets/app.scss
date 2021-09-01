@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Metropolis';
+  src: url('./fonts/metropolis/Metropolis-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Metrophobic';
+  src: url('./fonts/metrophobic/Metrophobic-Regular.ttf') format('opentype');
+}
+
+body {
+  font-family: 'Metrophobic', sans-serif;
+  background: #ece6d9;
+}
