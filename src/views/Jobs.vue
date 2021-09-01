@@ -2,6 +2,9 @@
   <div id="tuts">
     <div class="job-app">
       <header>
+        <h1>
+          <img src="../assets/logo.png" alt="" />
+        </h1>
         <div class="order">
           <button @click="handleClick('title')">order by title</button>
           <button @click="handleClick('salary')">order by salary</button>
