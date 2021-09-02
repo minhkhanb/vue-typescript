@@ -5,6 +5,17 @@
         <h2>{{ job.title }}</h2>
       </router-link>
     </div>
+
+    <div class="positions" v-if="positions.length">
+      <h2>Position</h2>
+      <div class="pos" v-for="pos in positions" :key="pos.id">
+        <p>{{ pos.title }}</p>
+      </div>
+    </div>
+    <div v-else>
+      <p>Loading positions...</p>
+    </div>
+
     <div class="job-app">
       <header>
         <h1>
@@ -46,6 +57,13 @@ export default defineComponent({
   name: 'Jobs',
   components: {
     JobList,
+  },
+  data() {
+    const positions: Job[] = [];
+
+    return {
+      positions,
+    };
   },
   setup() {
     const jobs = ref<Job[]>([
@@ -92,6 +110,12 @@ export default defineComponent({
       handleClick,
       order,
     };
+  },
+  mounted() {
+    fetch('http://localhost:3000/jobs')
+      .then((res) => res.json())
+      .then((data) => (this.positions = data))
+      .catch((err) => console.log(err.message));
   },
 });
 </script>
