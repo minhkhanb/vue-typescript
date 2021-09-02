@@ -1,9 +1,14 @@
 <template>
   <div id="tuts">
+    <div v-for="job in jobs" :key="job.id" class="job">
+      <router-link :to="{ name: 'JobDetails', params: { id: job.id } }">
+        <h2>{{ job.title }}</h2>
+      </router-link>
+    </div>
     <div class="job-app">
       <header>
         <h1>
-          <img src="../assets/logo.png" alt="" />
+          <img src="../../assets/logo.png" alt="" />
         </h1>
         <div class="order">
           <button @click="handleClick('title')">order by title</button>
@@ -33,9 +38,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import JobList from '../components/JobsList.vue';
-import { Job } from '../types/Job';
-import { OrderTerm } from '../types/OrderTerm';
+import JobList from '@/components/JobsList.vue';
+import { Job } from '@/types/Job';
+import { OrderTerm } from '@/types/OrderTerm';
 
 export default defineComponent({
   name: 'Jobs',
@@ -90,3 +95,27 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+#tuts {
+  text-align: center;
+}
+
+.job h2 {
+  background: #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px auto;
+  max-width: 600px;
+  cursor: pointer;
+  color: #444;
+}
+
+.job h2:hover {
+  background: #ccc;
+}
+
+.job a {
+  text-decoration: none;
+}
+</style>

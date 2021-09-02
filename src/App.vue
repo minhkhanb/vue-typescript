@@ -1,9 +1,9 @@
 <template>
-  <!-- <div id="nav">
+  <div class="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/tuts">Tutorials</router-link>
-  </div> -->
+    <router-link to="/jobs">Jobs</router-link>
+  </div>
   <router-view />
 </template>
 
@@ -23,12 +23,29 @@ body {
   background: #f5f5f5;
 }
 
-header {
+.nav {
   text-align: center;
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+
+    &.router-link-exact-active {
+      color: white;
+      background: crimson;
+    }
+  }
 }
 
-header .order {
-  margin-top: 20px;
+header {
+  text-align: center;
+  .order {
+    margin-top: 20px;
+  }
 }
 
 button {

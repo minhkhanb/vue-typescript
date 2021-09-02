@@ -2,11 +2,11 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Home from '../views/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home,
-  // },
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+  },
   {
     path: '/about',
     name: 'About',
@@ -17,11 +17,29 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
-    path: '/',
+    path: '/jobs',
     alias: '/jobs',
     name: 'jobs',
-    component: () => import('../views/Jobs.vue'),
+    component: () => import('../views/jobs/Jobs.vue'),
   },
+  {
+    path: '/jobs/:id',
+    name: 'JobDetails',
+    component: () => import('../views/jobs/JobDetails.vue'),
+    props: true,
+  },
+  // redirect
+  {
+    path: '/all-jobs',
+    redirect: '/jobs',
+  },
+  // catchall 404
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: () => import('../views/NotFound.vue'),
+  },
+
   {
     path: '/reaction-time',
     alias: '/reaction-time',
