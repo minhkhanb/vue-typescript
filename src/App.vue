@@ -4,8 +4,31 @@
     <router-link to="/about">About</router-link> |
     <router-link to="/jobs">Jobs</router-link>
   </div>
+
+  <div class="navigates">
+    <button @click="redirect">Redirect</button>
+    <button @click="back">Go back</button>
+    <button @click="forward">Go forward</button>
+  </div>
+
   <router-view />
 </template>
+
+<script>
+export default {
+  methods: {
+    redirect() {
+      this.$router.push({ name: 'Home' });
+    },
+    back() {
+      this.$router.go(-1);
+    },
+    forward() {
+      this.$router.go(1);
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 * {
@@ -39,6 +62,10 @@ body {
       background: crimson;
     }
   }
+}
+
+.navigates {
+  text-align: center;
 }
 
 header {
