@@ -1,10 +1,21 @@
 import axios, { AxiosInstance } from 'axios';
+import appConfig from '@/config/app';
+import { JwtIntercept } from '@/api/interceptors/jwt.interceptor';
+import { ErrorIntercept } from '@/api/interceptors/error.interceptor';
 
-const apiClient: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:8080/api',
+const axiosInstance = axios.create({
+  baseURL: appConfig.API_URL,
+  timeout: appConfig.API_TIMEOUT,
   headers: {
     'Content-type': 'application/json',
   },
 });
 
-export default apiClient;
+const registerInterceptors = (axiosInst: AxiosInstance) => {
+  JwtIntercept(axiosInst.interceptors.request);
+  ErrorIntercept(axiosInst.interceptors.response);
+};
+
+registerInterceptors(axiosInstance);
+
+export default axiosInstance;
