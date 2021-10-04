@@ -1,4 +1,4 @@
-import appConfig from '@/config/app';
+import appConfig from '@/common/config/app';
 
 export function logger<T>(
   target: T,

@@ -1,5 +1,5 @@
 /*eslint-disable @typescript-eslint/no-explicit-any*/
-import appConfig from '@/config/app';
+import appConfig from '@/common/config/app';
 
 export const logger = (() => {
   const isDebug = appConfig.IS_LOGGING;

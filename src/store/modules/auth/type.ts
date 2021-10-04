@@ -5,10 +5,6 @@ import {
   Store as VuexStore,
 } from 'vuex';
 import { RootState } from '@/store/modules/root/types';
-import {
-  NewPasswordByCodeOption,
-  ResetPasswordOption,
-} from '@/services/auth.service';
 
 export type AuthState = {
   isLogged: boolean | null;
@@ -28,13 +24,10 @@ export enum AuthMutationTypes {
 
 export enum AuthActionTypes {
   SET_AUTH = 'SET_AUTH',
-  IS_EMAIL_EXIST = 'IS_EMAIL_EXIST',
-  RESET_PASSWORD = 'RESET_PASSWORD',
-  GET_NEW_PASSWORD_BY_CODE = 'GET_NEW_PASSWORD_BY_CODE',
 }
 
 export type AuthMutations<S = AuthState> = {
-  [AuthMutationTypes.SET_AUTH](state: S, payload: boolean): void;
+  [AuthMutationTypes.SET_AUTH]: (state: S, payload: boolean) => void;
 };
 
 type AugmentedActionContextAuth = {
@@ -45,25 +38,10 @@ type AugmentedActionContextAuth = {
 } & Omit<ActionContext<AuthState, RootState>, 'commit'>;
 
 export interface AuthActions {
-  [AuthActionTypes.SET_AUTH](
+  [AuthActionTypes.SET_AUTH]: (
     { commit }: AugmentedActionContextAuth,
     payload: boolean
-  ): void;
-
-  [AuthActionTypes.IS_EMAIL_EXIST](
-    _: AugmentedActionContextAuth,
-    email: string
-  ): Promise<boolean>;
-
-  [AuthActionTypes.RESET_PASSWORD](
-    _: AugmentedActionContextAuth,
-    email: string
-  ): Promise<ResetPasswordOption>;
-
-  [AuthActionTypes.GET_NEW_PASSWORD_BY_CODE](
-    _: AugmentedActionContextAuth,
-    params: NewPasswordByCodeOption
-  ): Promise<ResetPasswordOption>;
+  ) => void;
 }
 
 export type AuthStoreModule<S = AuthState> = Omit<

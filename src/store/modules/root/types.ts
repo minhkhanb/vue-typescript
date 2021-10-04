@@ -5,11 +5,6 @@ import {
   Store as VuexStore,
 } from 'vuex';
 import { AuthActions } from '@/store/modules/auth/type';
-import { CourseActions } from '@/store/modules/course/types';
-import { InstructorActions } from '@/store/modules/instructor/types';
-import { StudentActions } from '@/store/modules/student/types';
-import { UserActions } from '@/store/modules/user/type';
-import { DemoActions } from '@/store/modules/demo/types';
 
 export type RootState = { loading: boolean };
 
@@ -71,11 +66,4 @@ export type RootStoreModule<S = RootState> = Omit<
   ): ReturnType<StoreActions[K]>;
 };
 
-export interface StoreActions
-  extends RootActions,
-    AuthActions,
-    CourseActions,
-    InstructorActions,
-    StudentActions,
-    UserActions,
-    DemoActions {}
+export interface StoreActions extends RootActions, AuthActions {}

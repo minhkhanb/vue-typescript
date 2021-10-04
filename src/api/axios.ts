@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import appConfig from '@/config/app';
+import appConfig from '@/common/config/app';
 import { JwtIntercept } from '@/api/interceptors/jwt.interceptor';
 import { ErrorIntercept } from '@/api/interceptors/error.interceptor';
 
